@@ -1,0 +1,349 @@
+:root, * {
+   /* each circle is 15px in width, plus a 10px margin on each side = 35px per circle */
+    --circles: 7;
+    --images: 7;
+    --circlesContainerWidth: calc(35 * var(--circles) + 20px);
+    --circlesContainerHeight: 50px;
+    --imageTotalWidth: 490px;
+    --imageWidth: 450px;
+    --imageHeight: 300px;
+    --imageTotalHeight: 390px;    
+    --containerWidth: calc(var(--imageTotalWidth) + 146px);
+    --containerHeight: calc(var(--imageTotalHeight) + var(--circlesContainerHeight));
+    --percentage: calc(100% / var(--images));   
+}
+#page-container-portfolio {  
+    padding-bottom: 48vh;
+    min-width: var(--containerWidth);
+}
+#content-container-portfolio {
+    height: var(--containerHeight);
+          
+}
+#container-div {
+    position: absolute;
+    top: 0px;
+    left: calc((100vw - var(--containerWidth)) / 2 );
+    width: var(--containerWidth);    
+    height: var(--containerHeight);
+    z-index: 1;
+    text-align: center;
+    border: 2px solid transparent;
+    box-sizing: content-box;    
+    margin-bottom: 24vh;
+}
+#slides-container {
+    border: 7px solid rgba(255, 0, 255, 0.4);
+    outline: solid 2px black;
+    /* positions the outline INSIDE the border: */
+    outline-offset: -10px;
+    border-radius: 3px;
+    height: var(--imageTotalHeight);
+    width: var(--imageTotalWidth);
+    z-index: 2;    
+    position: relative;
+    overflow: hidden;      
+    top: 0px;
+    left: 65px;  
+    box-sizing: content-box;  
+    background-color:  rgb(245, 234, 245);
+    background-color: thistle;
+}
+/* an empty element that enables the slide container to have a
+double border: */ 
+#slides-container::after {
+    width: calc(var(--imageTotalWidth) - 16px);
+    border: 2px solid black;
+    display: block;
+    height: calc(var(--imageTotalHeight) - 16px);
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 6px;
+    left: 6px;   
+}
+/* to prevent overlapping of button and container when screen
+size is reduced: */
+@media screen and (max-width: 1000px) {
+    #container-div {
+        margin-left: 30px;
+    }
+}
+#slides-reel {
+    height: var(--imageTotalHeight);
+    width: calc(var(--imageTotalWidth) * var(--images));
+    z-index: 3;
+    position: absolute;
+    left: -0px;   
+    border: none;    
+    box-sizing: content-box;    
+ } 
+/* #slides-reel.animated {
+    animation-name: move-slides;
+    animation-duration: 21s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(2, jump-none);
+    animation-direction: normal;    
+    animation-play-state: running;
+}
+#slides-reel.animated.paused {
+    animation-play-state: paused;
+}
+ // The issue with this animation is that it always starts from the beginning.
+// With JS, you can stop and start the ani at any point.
+
+ @keyframes move-slides {
+    0% {
+        left: 0px;
+    }    
+    17% {
+        left: calc(var(--imageTotalWidth) * -1);
+    }    
+    34% {
+        left: calc(var(--imageTotalWidth) * -2);
+    }
+    51% {
+        left: calc(var(--imageTotalWidth) * -3);
+    }
+    67% {
+        left: calc(var(--imageTotalWidth) * -4);
+    }
+    84% {
+        left: calc(var(--imageTotalWidth) * -5);
+    }
+    100% {
+        left: calc(var(--imageTotalWidth) * -6);
+    }
+}*/
+.segment {
+    float: left;
+    width: var(--imageTotalWidth);
+    height: var(--imageTotalHeight);         
+    z-index: 4;    
+}
+.segment.visible .github-link img {
+    animation: jiggle 3s linear 700ms 1;
+}
+.github-link img {
+    width: 10%;
+    height: 46px;
+    margin-top: 14px;
+    position: relative;
+    right: 40%;
+    background-color: fuchsia;
+    border-radius: 50%;
+    border: 3px solid cornflowerblue;    
+}
+@keyframes jiggle {
+    0% {
+        transform: rotate(10deg);     
+    }
+    5% {
+        transform: rotate(-10deg);        
+    }
+    10% {
+        transform: rotate(10deg);        
+    }
+    15% {
+        transform: rotate(-10deg);        
+    }
+    20%, 100% {
+        transform: rotate(0deg);        
+    }
+}
+.github-link img:hover {
+    background-color: cornflowerblue;
+    transform: scale(1.1);
+}
+img.screenshot {
+    width: var(--imageWidth);
+    height: var(--imageHeight);     
+    z-index: 5;
+    object-fit: cover;
+    object-position: 0 0;
+    border: 2px solid black;
+    position: relative;  
+    left: 0px;
+    top: 8px;
+}
+.segment:nth-of-type(3) a:nth-of-type(2) img {
+    object-position: 50% 0;
+}
+button.arrow {
+    all: unset;
+    position: absolute;
+    z-index: 4;
+    height: 35px;
+    width: 35px;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;    
+    background-color: rgba(211, 255, 251, 1);
+    border-radius: 3px;
+    border: 1px solid black;
+    color: fuchsia;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    outline: 1px solid fuchsia;    
+    top: 50%;    
+}
+button.arrow:hover {
+    animation: arrow-pulse 600ms linear 100ms 1 normal backwards;
+}
+button.arrow:active, button.arrow:focus {
+    box-shadow: 3px 3px 10px 8px rgba(219, 237, 248, 0.5);
+}
+@keyframes arrow-pulse {
+    15% {
+        transform: rotate(5deg);
+    }
+    30% {
+        transform: rotate(-5deg);
+    }
+    45% {
+        transform: rotate(5deg);
+    }
+    70% {        
+        transform: rotate(-5deg);
+    }   
+}
+#forward-arrow {
+    right: 0px;    
+}
+#back-arrow {
+    left: -3px;   
+}
+#circles-container {    
+    position: absolute;   
+    text-align: center;
+    bottom: 5px;
+    border: 1px solid transparent;
+    left: calc((100% - 265px) / 2);
+    width: var(--circlesContainerWidth);
+    margin-top: 35px;
+}
+.circle {
+    margin: 0 10px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: cornflowerblue;
+    border: 1px solid black;
+    transition: all 300ms;
+}
+.circle.selected {
+    background-color: rgb(211, 255, 255);
+    box-shadow: 1px 1px 18px 0px rgba(255, 0, 255, 1);
+    border: 1px solid black;
+}
+section#controls-container {
+    z-index: 1;
+    position: absolute;
+    max-width: 8vw;
+    min-width: 65px;
+    width: clamp(80px, 8vw, 9vw);
+    top: 25%;
+    left: calc((100vw - var(--containerWidth)) / 2.7 );
+    bottom: 75vh;
+    height: 70px;   
+    background-color: transparent;       
+    perspective: 500px;    
+
+}
+div#controls-inner {       
+    position: relative;
+    width: 100%;
+    height: 100%;   
+    text-align: center;  
+    left: 0;
+    top: 0;  
+}    
+div.controls {    
+    position: absolute;
+    inset: 0;  
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;  
+}
+div#controls-inner.clicked {   
+    animation: flip-button 2500ms linear 100ms 1 normal;
+    animation-fill-mode: forwards;
+}
+@keyframes flip-button {
+    20%, 100% {
+        transform: rotateY(180deg);
+        transform-style: preserve-3d;        
+    }
+}
+div#controls-inner.paused {
+    animation: flip-back 600ms linear 0s 1 reverse;
+    animation-fill-mode: forwards;
+}
+@keyframes flip-back {
+    100% {
+        transform: rotateY(180deg);
+        transform-style: preserve-3d;        
+    }
+}
+div.controls.front {
+    width: 100%;     
+    height: 100%;     
+}
+div.controls.back {
+    width: 100%;     
+    height: 100%;      
+    transform: rotateY(180deg);
+}
+div.controls button {
+    width: 100%;
+    height: 100%;
+    border-radius: 35px;
+    border: none;
+    outline: none;   
+    font-variant: small-caps; 
+    font-size: 18px;  
+    font-family: "banger";  
+    letter-spacing: 1px;    
+    border: 2px solid black;
+}
+div.controls button:hover {
+    outline: 4px solid rgba(255, 0, 255, 0.3);
+    animation: outline-pulse 600ms linear 100ms 3 forwards;  
+}
+@keyframes outline-pulse {
+    100% {
+        outline: 4px solid transparent;
+        outline-offset: 5px;
+    }
+}
+#start {
+    background-color: cornflowerblue;
+}
+#pause {
+    background-color: fuchsia;
+}
+button {
+    cursor: pointer;
+}
+@media screen and (max-width: 750px) {
+    #content-container-portfolio {        
+        width: calc(var(--containerWidth) + 40px);
+        border: 2px solid red;
+    }
+    #container-div {
+       border: 2px solid pink;
+       left: 5px;
+    }
+    section#controls-container {
+        left: 10px;
+    }
+    footer {
+        width: calc(var(--containerWidth) + 40px);
+    }
+}
+@media  screen and (max-height: 400px) {
+    footer {
+        position: fixed;
+        bottom: 0;
+    }
+}
