@@ -16,7 +16,7 @@
     padding-bottom: 46vh;
     min-width: var(--containerWidth);
 }
-#content-container-portfolio {
+.content-container#content-container-portfolio {
     height: var(--containerHeight);          
 }
 #container-div {
@@ -237,9 +237,7 @@ button.arrow:active, button.arrow:focus {
 }
 section#controls-container {
     z-index: 1;
-    position: absolute;
-    max-width: 8vw;
-    min-width: 65px;
+    position: absolute;    
     width: clamp(80px, 8vw, 9vw);
     top: 25%;
     left: calc((100vw - var(--containerWidth)) / 2.7 );
@@ -247,7 +245,6 @@ section#controls-container {
     height: 70px;   
     background-color: transparent;       
     perspective: 500px;    
-
 }
 div#controls-inner {       
     position: relative;
@@ -300,10 +297,12 @@ div.controls button {
     border: none;
     outline: none;   
     font-variant: small-caps; 
-    font-size: 18px;  
+    font-size: 1rem;  
     font-family: "banger";  
     letter-spacing: 1px;    
     border: 2px solid black;
+    padding: 1px;
+    box-sizing: content-box;
 }
 div.controls button:hover {
     outline: 4px solid rgba(255, 0, 255, 0.3);
@@ -326,18 +325,18 @@ button {
 }
 @media screen and (max-width: 750px) {
     #content-container-portfolio {        
-        width: calc(var(--containerWidth) + 40px);
-        border: 2px solid red;
+        width: calc(var(--containerWidth) + 110px);
+        border: ;
     }
     #container-div {
-       border: 2px solid pink;
-       left: 5px;
+       border: 2px solid rgb(61, 168, 34);
+       left: 0px;
     }
     section#controls-container {
-        left: 10px;
+        left: 0px;
     }
     footer {
-        width: calc(var(--containerWidth) + 40px);
+        width: calc(var(--containerWidth) + 110px);
     }
 }
 @media  screen and (max-height: 400px) {

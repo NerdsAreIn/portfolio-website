@@ -8,13 +8,13 @@
 }
 html {
     font-size: 18px;
-    letter-spacing: 1px;
+    letter-spacing: 1px;    
 }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "comic";
+    font-family: "comic";    
 }
 body {
     background-color: rgb(245, 234, 245);
@@ -23,17 +23,15 @@ body {
     width: 100vw;
     height: 100vh;
     min-height: 630px;
+    position: relative;
 }
 .page-container {
     z-index: 0;
     min-height: 100vh;
     width: 100vw;
     position: relative;    
-    border: 2px solid saddlebrown;  
+    /*border: 2px solid saddlebrown; */
     inset: 0; 
-}
-#page-container-home {
-   
 }
 .content-container {
     z-index: 1;
@@ -147,6 +145,7 @@ a:hover, a.hovered {
     z-index: 1;
     overflow: hidden;
     transition: height 1s;      
+    font-size: 0.85rem;
 }
 #work-menu {
     left: 55vw;
@@ -308,8 +307,7 @@ ul.menuDiv > li > a {
     }
     .footer {
         min-width: 100vw;
-    }
-   
+    }   
 }
 @media screen and (max-width: 810px) and (min-height: 1000px) {
     nav {
@@ -367,9 +365,8 @@ footer {
     overflow: hidden;
     min-height: 100px;
 }
-#page-container-home footer {
-    position: fixed;
-    
+#page-container-home footer, #page-container-contact footer {
+    position: fixed;    
 }
 .footer {
     position: absolute;
