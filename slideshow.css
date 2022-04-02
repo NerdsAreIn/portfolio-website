@@ -13,12 +13,11 @@
     --percentage: calc(100% / var(--images));   
 }
 #page-container-portfolio {  
-    padding-bottom: 48vh;
+    padding-bottom: 46vh;
     min-width: var(--containerWidth);
 }
 #content-container-portfolio {
-    height: var(--containerHeight);
-          
+    height: var(--containerHeight);          
 }
 #container-div {
     position: absolute;

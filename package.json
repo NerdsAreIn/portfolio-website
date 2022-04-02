@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-site",
+  "version": "1.0.0",
+  "description": "Code for my web dev site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/NerdsAreIn/portfolio-website.git"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "author": "NerdsAreIn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NerdsAreIn/portfolio-website/issues"
+  },
+  "homepage": "https://github.com/NerdsAreIn/portfolio-website#readme"
+}
