@@ -2,6 +2,7 @@
    /* each circle is 15px in width, plus a 10px margin on each side = 35px per circle */
     --circles: 7;
     --images: 7;
+    --percentage: calc(100% / var(--images));
     --circlesContainerWidth: calc(35 * var(--circles) + 20px);
     --circlesContainerHeight: 50px;
     --imageTotalWidth: 490px;
@@ -9,8 +10,8 @@
     --imageHeight: 300px;
     --imageTotalHeight: 390px;    
     --containerWidth: calc(var(--imageTotalWidth) + 146px);
-    --containerHeight: calc(var(--imageTotalHeight) + var(--circlesContainerHeight));
-    --percentage: calc(100% / var(--images));   
+    --containerHeight: calc(var(--imageTotalHeight) + var(--circlesContainerHeight));      
+    --contentContainerWidth:  calc(var(--containerWidth) + 110px)
 }
 #page-container-portfolio {  
     padding-bottom: 46vh;
@@ -18,6 +19,17 @@
 }
 .content-container#content-container-portfolio {
     height: var(--containerHeight);          
+}
+#slides-container, #slides-container::after, #slides-reel {
+   transform: translateY(-30px); 
+   animation: drop-in 1200ms ease-out 2s 1 forwards;
+   opacity: 0;
+}
+@keyframes drop-in {
+    100% {
+    transform: translateY(0px);
+    opacity: 1;
+    }
 }
 #container-div {
     position: absolute;
@@ -29,7 +41,7 @@
     text-align: center;
     border: 2px solid transparent;
     box-sizing: content-box;    
-    margin-bottom: 24vh;
+    margin-bottom: 24vh;    
 }
 #slides-container {
     border: 7px solid rgba(255, 0, 255, 0.4);
@@ -63,11 +75,6 @@ double border: */
 }
 /* to prevent overlapping of button and container when screen
 size is reduced: */
-@media screen and (max-width: 1000px) {
-    #container-div {
-        margin-left: 30px;
-    }
-}
 #slides-reel {
     height: var(--imageTotalHeight);
     width: calc(var(--imageTotalWidth) * var(--images));
@@ -187,7 +194,7 @@ button.arrow {
     top: 50%;    
 }
 button.arrow:hover {
-    animation: arrow-pulse 600ms linear 100ms 1 normal backwards;
+    animation: arrow-pulse 600ms linear 0ms 1 normal backwards;
 }
 button.arrow:active, button.arrow:focus {
     box-shadow: 3px 3px 10px 8px rgba(219, 237, 248, 0.5);
@@ -240,7 +247,7 @@ section#controls-container {
     position: absolute;    
     width: clamp(80px, 8vw, 9vw);
     top: 25%;
-    left: calc((100vw - var(--containerWidth)) / 2.7 );
+    left: calc((100vw - var(--containerWidth)) / 3.1 );
     bottom: 75vh;
     height: 70px;   
     background-color: transparent;       
@@ -323,25 +330,55 @@ div.controls button:hover {
 button {
     cursor: pointer;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1000px) {
+    section#controls-container {
+        margin-left: 0px;
+        left: ;        
+    }
+}
+@media screen and (max-height: 400px) {
+    footer {
+        position: fixed;  
+        bottom: 0;   
+    }
+}
+@media screen and (max-width: 810px) {
+    * {
+    --imageTotalWidth: 400px;
+    --imageWidth: 360px;
+    --imageHeight: 240px;
+    --imageTotalHeight: 330px;
+    }
+    nav {
+        width: var(--contentContainerWidth);
+        width: 110%;
+    }
+    #page-container-portfolio {
+        width: ;
+    }
     #content-container-portfolio {        
-        width: calc(var(--containerWidth) + 110px);
+        width: var(--contentContainerWidth);
         border: ;
     }
     #container-div {
        border: 2px solid rgb(61, 168, 34);
-       left: 0px;
+       left: calc((var(--contentContainerWidth) - var(--containerWidth)) / 2);
     }
     section#controls-container {
-        left: 0px;
+        left: 20px;
     }
     footer {
-        width: calc(var(--containerWidth) + 110px);
+        width: calc(var(--contentContainerWidth) + 150px);
+        width: 110%;
+        position: fixed;
+        bottom: 0;        
     }
 }
-@media  screen and (max-height: 400px) {
-    footer {
-        position: fixed;
-        bottom: 0;
-    }
+@media  screen and (max-height: 950px) and (max-width: 450px) {
+   #content-container-portfolio {
+       top: 25vh;
+   }
+   .footer {
+       min-width: 110vw;
+   }
 }
