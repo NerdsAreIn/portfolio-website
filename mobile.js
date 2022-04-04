@@ -94,8 +94,13 @@ function collapseNav(e) {
     if (mobileWidth.matches) {
         headersImport.forEach(header => {           
             header.classList.add("off-screen");            
-        });      
-        setTimeout(() => hamburger.style.left = "50px", 300);      
+        });
+        if (e.type === "change") {      
+        setTimeout(() => hamburger.style.left = "50px", 300);     
+        } 
+        else if (e.type === "load") {      
+        setTimeout(() => hamburger.style.left = "50px", 2000);     
+        } 
     }
     else {
         headersImport.forEach(header => {           
@@ -113,3 +118,4 @@ function openCurtain() {
 function closeCurtain() {    
     curtain.classList.remove("mobile");
 }
+export {mobileWidth};
