@@ -7,10 +7,12 @@ const underlines = document.querySelectorAll(".underline");
 // mouseover also applies to child elements
 
 function respondToEvent(e) {
+    //if (e.type === "click" && e.target.closest(".header")) {
+    //    e.preventDefault();
+   //}
     let selectedLink;    
     let selectedLinkParent;
     if (e.target.matches(".header a")) {
-        e.preventDefault();
         selectedLink = e.target;        
         selectedLink.className = "hovered"; 
         selectedLinkParent = selectedLink.closest(".header");
@@ -37,7 +39,7 @@ function respondToEvent(e) {
                 currentMenu.style.height = dropdownHeight + "px";    
                 listItems.forEach(item => { 
                     item.addEventListener("click", e => {   
-                        e.preventDefault();    
+                        //e.preventDefault();    
                         item.classList.add("active");
                         listItems.forEach(item => {
                             if (item !== e.target) item.classList.remove("active");

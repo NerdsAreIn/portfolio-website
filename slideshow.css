@@ -13,6 +13,33 @@
     --containerHeight: calc(var(--imageTotalHeight) + var(--circlesContainerHeight));      
     --contentContainerWidth:  calc(var(--containerWidth) + 110px)
 }
+nav {
+    opacity: 1;
+    height: 90px;
+    transition: none;
+}
+.header {
+    opacity: 1;
+    height: 90px;
+    transition: transform 1.5s ease-out;
+}
+.header a {
+    opacity: 1;   
+    transition: none;
+}
+#footer-content {
+    opacity: 1;
+    height: 50%;
+    animation: none;
+}
+@media screen and (max-width: 810px) {
+    nav {
+        border-bottom: 4px solid black;     
+    }
+    .footer {
+        min-width: 100vw;
+    }    
+}
 #page-container-portfolio {  
     padding-bottom: 46vh;
     min-width: var(--containerWidth);
@@ -22,7 +49,7 @@
 }
 #slides-container, #slides-container::after, #slides-reel {
    transform: translateY(-30px); 
-   animation: drop-in 1200ms ease-out 2s 1 forwards;
+   animation: drop-in 1200ms ease-out 100ms 1 forwards;
    opacity: 0;
 }
 @keyframes drop-in {
@@ -381,4 +408,15 @@ button {
    .footer {
        min-width: 110vw;
    }
+}
+@media screen and (max-width: 810px) {
+    nav {
+        border-bottom: 4px solid black;     
+    }  
+    .header {
+        transform: translateX(1800px);
+    }
+    #hamburger {
+        left: 50px;
+    }
 }

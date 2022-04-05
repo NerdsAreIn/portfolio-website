@@ -1,6 +1,3 @@
-#page-container-about footer {
-    position: fixed;    
- }
 nav {
     opacity: 1;
     height: 90px;
@@ -23,7 +20,7 @@ nav {
 @media screen and (max-width: 810px) {
     nav {
         border-bottom: 4px solid black;     
-    }  
+    }
     .header {
         transform: translateX(1800px);
     }
@@ -31,4 +28,3 @@ nav {
         left: 50px;
     }
 }
-
