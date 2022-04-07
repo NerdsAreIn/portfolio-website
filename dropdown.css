@@ -51,12 +51,9 @@ nav {
     overflow: visible;  
     opacity: 0;
     height: 0;
-    transition: opacity 2s ease-out 0.1s, height 2s ease-out 0.1s;  
-}    
-nav.visible {
-    opacity: 1;
-    height: 90px;
-}
+    /*transition: opacity 2s ease-out 0.1s, height 2s ease-out 0.1s;*/  
+}   
+ 
 /*@media screen and (min-width: 810px) {
     nav {
         opacity: 0;
@@ -85,7 +82,7 @@ nav.visible {
     background-color: inherit;             
     z-index: 2;          
     padding: 36px 20px 20px;         
-    transition: transform 1.5s ease-out, opacity 3s ease-out 0.1s, height 3s ease-out 0.1s;
+    transition: transform 1.5s ease-out, /*opacity 3s ease-out 0.1s, height 3s ease-out 0.1s;*/
 }
 .header.visible {
     opacity: 1;
@@ -115,7 +112,7 @@ nav.visible {
     z-index: 4;
     width: fit-content;    
     padding: 5px; 
-    animation: text-appear 1.5s linear 1s 1 forwards;   
+    /*animation: text-appear 1.5s linear 1s 1 forwards;*/   
 }
 @keyframes text-appear {
     100% {
