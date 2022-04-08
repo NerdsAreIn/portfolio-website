@@ -44,17 +44,13 @@ nav {
     width: 100vw;    
     background-color: rgb(211, 255, 251);
     padding-left: 0;    
-    display: flex;
     align-items: middle;
     z-index: 6;    
     top: 0;
-    overflow: visible;  
-    opacity: 0;
-    height: 0;
-    /*transition: opacity 2s ease-out 0.1s, height 2s ease-out 0.1s;*/  
-}   
- 
-/*@media screen and (min-width: 810px) {
+    overflow: visible;   
+    display: flex;
+   }   
+@media screen and (min-width: 810px) {
     nav {
         opacity: 0;
         height: 0;
@@ -68,8 +64,8 @@ nav {
     100% {
         opacity: 1;
         height: 90px;
-    }   
-}*/
+    }
+}
 .header {
     width: 25vw;    
     overflow: visible;
@@ -82,7 +78,7 @@ nav {
     background-color: inherit;             
     z-index: 2;          
     padding: 36px 20px 20px;         
-    transition: transform 1.5s ease-out, /*opacity 3s ease-out 0.1s, height 3s ease-out 0.1s;*/
+    transition: transform 1.5s ease-out;
 }
 .header.visible {
     opacity: 1;
@@ -112,7 +108,7 @@ nav {
     z-index: 4;
     width: fit-content;    
     padding: 5px; 
-    /*animation: text-appear 1.5s linear 1s 1 forwards;*/   
+    animation: text-appear 1.5s linear 1s 1 forwards;
 }
 @keyframes text-appear {
     100% {
