@@ -1,29 +1,21 @@
-import headers from "./dropdown.js";
-const nav = document.querySelector("nav");
-const links = document.querySelectorAll(".header a");
+const arrows = document.querySelectorAll(".arrow");
 
-const path = window.location.pathname;
-const page = path.split("/").pop();
-console.log(path.split("/"));
-console.log({path});
-console.log({page});
+arrows.forEach(arrow => {
+    arrow.addEventListener("animationend", () => {
+        setTimeout(() => {
+            arrow.style.translate = "0px"; 
+            arrow.style.animation = "none";
+        }, 100);    
+    });
+});
+arrows.forEach(arrow => {
+    arrow.addEventListener("mouseenter", () => {
+        arrow.style.animation = "arrow-pulse 0.6s linear 0s 1 normal forwards";
+    });
+});
 
-import {mobileWidth} from "./mobile.js";
 
-window.addEventListener("load", loadPage, {once: true});
 
-function loadPage() {
-    if (document.title === "Home") {
-        nav.style.opacity = "1";
-        nav.style.height = "90px";
-        headers.forEach(header => {
-            header.style.height = "90px";
-            header.style.opacity = "1";
-        });
-        links.forEach(link => {
-            link.style.opacity = "1";
-        });
-        console.log("classes added");  
-       // window.removeEventListener("load", loadPage);
-    }   
-}
+
+
+
