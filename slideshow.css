@@ -152,12 +152,6 @@ size is reduced: */
         left: calc(var(--imageTotalWidth) * -6);
     }
 }*/
-.segment {
-    float: left;
-    width: var(--imageTotalWidth);
-    height: var(--imageTotalHeight);         
-    z-index: 4;    
-}
 .segment.visible .github-link img {
     animation: jiggle 3s linear 700ms 1;
 }
@@ -362,8 +356,7 @@ div.controls button {
     border: 2px solid black;
     padding: 1px;
     box-sizing: content-box;
-    position: relative;
-    
+    position: relative;    
 }
 div.controls button:hover {
     outline: 4px solid rgba(255, 0, 255, 0.3);
@@ -403,6 +396,10 @@ button {
     --imageHeight: 240px;
     --imageTotalHeight: 330px;
     }
+    .segment {
+        width: var(--imageTotalWidth);
+        height: var(--imageTotalHeight);   
+    }
     nav {
         width: var(--contentContainerWidth);
         width: 110%;
@@ -414,6 +411,10 @@ button {
        border: 2px solid rgb(61, 168, 34);
        left: calc((var(--contentContainerWidth) - var(--containerWidth)) / 2);
     }
+    /*#slides-reel {
+        height: var(--imageTotalHeight);
+        width: calc(var(--imageTotalWidth) * var(--images));
+    }  */  
     section#controls-container {
         left: 20px;
     }
@@ -443,3 +444,20 @@ button {
         left: 50px;
     }
 }
+.segment {
+    float: left;
+    z-index: 4;  
+    width: var(--imageTotalWidth);
+    height: var(--imageTotalHeight); 
+}
+/*@media  screen and (min-width: 810px) {
+    * {
+    --imageTotalWidth: 490px;
+    --imageTotalHeight: 390px;
+    }
+    .segment {
+        width: var(--imageTotalWidth);
+        height: var(--imageTotalHeight);        
+    }
+}*/
+

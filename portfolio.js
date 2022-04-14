@@ -1,3 +1,5 @@
+import {mobileWidth} from "./mobile.js";
+
 const backButton = document.getElementById("back-arrow");
 const forwardButton = document.getElementById("forward-arrow");
 const slidesReel = document.getElementById("slides-reel");
@@ -14,12 +16,26 @@ let imageDeclarationBlock = window.getComputedStyle(image1);
 let imageWidth = parseInt(imageDeclarationBlock.getPropertyValue("width"));
 let slideshowAnimation;
 
-for (let i = 0; i < slides.length; i++) {
-    slides[i].setAttribute("data-position", -(imageWidth * i) + "px");    
+mobileWidth.addEventListener("change", setSlidePositions);
+window.addEventListener("load", setSlidePositions);
+
+function setSlidePositions() {
+    console.log("set");
+    imageDeclarationBlock = window.getComputedStyle(image1);
+    imageWidth = parseInt(imageDeclarationBlock.getPropertyValue("width"));
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].setAttribute("data-position", -(imageWidth * i) + "px");    
+    }
 }
 
 function stopAnimation() {
     clearInterval(slideshowAnimation);
+}
+
+function getSlide() {
+    // need to find selected circle and its corresponding image number, 
+    // then select the slide with matching id, then set the data-position of this slide as the 
+    // "left" value of the slides-reel
 }
 
 function findVisibleSlide() {
@@ -47,6 +63,8 @@ function moveSlides() {
     let widthNumber = Number("-" + parseInt(widthValue));    
     leftValue = reelDeclarationBlock.getPropertyValue("left");
     leftNumber = parseInt(leftValue);
+    imageDeclarationBlock = window.getComputedStyle(image1);
+    imageWidth = parseInt(imageDeclarationBlock.getPropertyValue("width"));
     let finalNumber = widthNumber + imageWidth;// -4480 + 640 = -3840, which is the leftmost position
     if (finalNumber < leftNumber) {  
         leftNumber -= imageWidth;    
@@ -77,6 +95,8 @@ pauseButton.addEventListener("click", () => {
 backButton.addEventListener("click", () => {
     leftValue = reelDeclarationBlock.getPropertyValue("left");
     leftNumber = parseInt(leftValue);
+    imageDeclarationBlock = window.getComputedStyle(image1);
+    imageWidth = parseInt(imageDeclarationBlock.getPropertyValue("width"));
     if (leftNumber < -0) {  
         leftNumber += imageWidth;  
     }
@@ -90,6 +110,8 @@ forwardButton.addEventListener("click", () => {
     let widthNumber = Number("-" + parseInt(widthValue));
     leftValue = reelDeclarationBlock.getPropertyValue("left");
     leftNumber = parseInt(leftValue);
+    imageDeclarationBlock = window.getComputedStyle(image1);
+    imageWidth = parseInt(imageDeclarationBlock.getPropertyValue("width"));
     let finalNumber = widthNumber + imageWidth;
     if (finalNumber < leftNumber) {  
         leftNumber -= imageWidth;        
