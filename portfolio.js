@@ -9,23 +9,22 @@ const playButton = document.getElementById("start");
 const slides = [...document.getElementsByClassName("segment")];
 const image1 = slides[0];
 const controlButtons = document.querySelectorAll("#controls-inner button");
-let reelDeclarationBlock = window.getComputedStyle(slidesReel);
-let leftValue = reelDeclarationBlock.getPropertyValue("left");
-let leftNumber = parseInt(leftValue);
+let reelDeclarationBlock = window.getComputedStyle(slidesReel);;
+let leftValue;
+let leftNumber; 
 let imageDeclarationBlock = window.getComputedStyle(image1);
-let imageWidth = parseInt(imageDeclarationBlock.getPropertyValue("width"));
+let imageWidth;
 let slideshowAnimation;
 
 mobileWidth.addEventListener("change", setSlidePositions);
 window.addEventListener("load", setSlidePositions);
 
 function setSlidePositions() {
-    console.log("set");
-    imageDeclarationBlock = window.getComputedStyle(image1);
     imageWidth = parseInt(imageDeclarationBlock.getPropertyValue("width"));
     for (let i = 0; i < slides.length; i++) {
         slides[i].setAttribute("data-position", -(imageWidth * i) + "px");    
     }
+    getSlide();
 }
 
 function stopAnimation() {
@@ -33,12 +32,24 @@ function stopAnimation() {
 }
 
 function getSlide() {
-    // need to find selected circle and its corresponding image number, 
-    // then select the slide with matching id, then set the data-position of this slide as the 
-    // "left" value of the slides-reel
+    let selectedCircle;
+    circles.map(circle => {
+        if (circle.className === "circle selected") {
+            selectedCircle = circle;
+        }
+    });
+    let circleNo = selectedCircle.getAttribute(["data-correspondingImg"]);
+    let visibleSlide;
+    slides.forEach(slide => {
+        if (slide.id === circleNo) {             
+            visibleSlide = slide;                     
+        }        
+    });    
+    slidesReel.style.left = visibleSlide.dataset.position;
 }
 
 function findVisibleSlide() {
+    leftValue = reelDeclarationBlock.getPropertyValue("left");
     for (let i = 0; i < slides.length; i++) {
         if (slides[i].dataset.position === leftValue) {
             slides[i].classList.add("visible");
@@ -63,7 +74,6 @@ function moveSlides() {
     let widthNumber = Number("-" + parseInt(widthValue));    
     leftValue = reelDeclarationBlock.getPropertyValue("left");
     leftNumber = parseInt(leftValue);
-    imageDeclarationBlock = window.getComputedStyle(image1);
     imageWidth = parseInt(imageDeclarationBlock.getPropertyValue("width"));
     let finalNumber = widthNumber + imageWidth;// -4480 + 640 = -3840, which is the leftmost position
     if (finalNumber < leftNumber) {  
@@ -95,7 +105,6 @@ pauseButton.addEventListener("click", () => {
 backButton.addEventListener("click", () => {
     leftValue = reelDeclarationBlock.getPropertyValue("left");
     leftNumber = parseInt(leftValue);
-    imageDeclarationBlock = window.getComputedStyle(image1);
     imageWidth = parseInt(imageDeclarationBlock.getPropertyValue("width"));
     if (leftNumber < -0) {  
         leftNumber += imageWidth;  
@@ -110,7 +119,6 @@ forwardButton.addEventListener("click", () => {
     let widthNumber = Number("-" + parseInt(widthValue));
     leftValue = reelDeclarationBlock.getPropertyValue("left");
     leftNumber = parseInt(leftValue);
-    imageDeclarationBlock = window.getComputedStyle(image1);
     imageWidth = parseInt(imageDeclarationBlock.getPropertyValue("width"));
     let finalNumber = widthNumber + imageWidth;
     if (finalNumber < leftNumber) {  
@@ -122,14 +130,12 @@ forwardButton.addEventListener("click", () => {
 });
 
 controlButtons.forEach(button => {
-    console.log({button});
     button.addEventListener("click", (e) => {
         let clickedButton = e.target;
         let controlsInner = clickedButton.closest("#controls-inner");
         controlsInner.classList.toggle("clicked");          
         if (clickedButton.id == "pause") {
-           console.log("paused");
-           controlsInner.classList.add("paused");
+            controlsInner.classList.add("paused");
         }
         else controlsInner.classList.remove("paused");              
     });
