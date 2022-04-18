@@ -71,7 +71,7 @@ nav {
     overflow: visible;
     display: inline-block;    
     height: 90px;       
-    z-index: 2; 
+    z-index: 7; 
     opacity: 0;  
     height: 0;
     text-align: center;  
@@ -79,6 +79,7 @@ nav {
     z-index: 2;          
     padding: 36px 20px 20px;         
     transition: transform 1.5s ease-out;
+    position: relative;
 }
 .header.visible {
     opacity: 1;
@@ -94,8 +95,9 @@ nav {
     width: max-content;
     margin: auto;
     padding: 2px;
-    z-index: 3;
+    z-index: 8;
     overflow: visible;
+    position: relative;
 }
 .header a {
     margin: auto;    
@@ -105,7 +107,7 @@ nav {
     position: relative;    
     transition: color ease 100ms;
     opacity: 0;      
-    z-index: 4;
+    z-index: 9;
     width: fit-content;    
     padding: 5px; 
     animation: text-appear 1.5s linear 1s 1 forwards;
@@ -411,8 +413,8 @@ footer {
         opacity: 1;       
     }
     #curtain {
-        top: 23vh;       
-        height: max(77vh, calc(100% - 23vh));        
+        top: 21vh;       
+        height: max(77vh, calc(100% - 21vh));        
     }
     .curtainItem {
         height: 25%;

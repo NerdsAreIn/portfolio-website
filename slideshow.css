@@ -381,7 +381,7 @@ button {
     --imageTotalWidth: 400px;
     --imageWidth: 360px;
     --imageHeight: 240px;
-    --imageTotalHeight: 330px;
+    --imageTotalHeight: 330px;    
     }
     nav {
         width: var(--contentContainerWidth);
@@ -415,11 +415,18 @@ button {
     }
 }
 @media  screen and (max-height: 950px) and (max-width: 450px) {
+    * {
+        --circlesContainerWidth: calc(32 * var(--circles) + 20px);
+    }
    #content-container-portfolio {
        top: 25vh;
    }
    .footer {
        min-width: 110vw;
+   }
+   .circle {
+       width: 12px;
+       height: 12px;
    }
 }
 @media screen and (max-height: 450px) {
@@ -434,8 +441,17 @@ button {
         --imageTotalHeight: 330px;
         }
     nav, .header {
-        height: ;
-        animation: drop-down 3s ease-out 100ms 1 forwards;;
+         animation: drop-down 3s ease-out 100ms 1 forwards;
+    }
+    .header {
+        padding: 23px 20px 20px;  
+    }
+    #work-button .link-container {
+        /*margin-bottom: 20px;*/
+        bottom: 12px;
+    }
+    .menuDiv {
+        top: 17vh;
     }
     @keyframes drop-down {
         100% {
@@ -443,6 +459,6 @@ button {
             height: 18vh;
         }
     }
-}vh
+}
      
 
