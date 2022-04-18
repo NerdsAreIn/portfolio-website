@@ -187,7 +187,7 @@ ul.menuDiv > li > a {
     background-color: transparent;
     position: relative;
     top: 5.5vh;   
-    z-index: 3;
+    z-index: 7;
     left: -150px;
     transition: left 0.7s;
 }
@@ -198,6 +198,7 @@ ul.menuDiv > li > a {
     background-color: rgb(252, 177, 188);
     position: relative;    
     height: 6px;     
+    z-index: 8;
 }
 #curtain {
     position: fixed;
@@ -406,8 +407,7 @@ footer {
 }
 @media screen and (max-width: 450px) and (max-height: 950px) {
     nav {
-        height: 23vh;
-        overflow: hidden; 
+        height: 21vh;
         opacity: 1;       
     }
     #curtain {

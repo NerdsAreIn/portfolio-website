@@ -32,14 +32,6 @@ nav {
     height: 50%;
     animation: none;
 }
-@media screen and (max-width: 810px) {
-    nav {
-        border-bottom: 4px solid black;     
-    }
-    .footer {
-        min-width: 100vw;
-    }    
-}
 #page-container-portfolio {  
     padding-bottom: 46vh;
     min-width: var(--containerWidth);
@@ -384,12 +376,6 @@ button {
         margin-left: 0px;       
     }
 }
-@media screen and (max-height: 400px) {
-    footer {
-        position: fixed;  
-        bottom: 0;   
-    }
-}
 @media screen and (max-width: 810px) {
     * {
     --imageTotalWidth: 400px;
@@ -400,13 +386,23 @@ button {
     nav {
         width: var(--contentContainerWidth);
         width: 110%;
+        height: 21vh;
+        opacity: 1;
     }
-    #content-container-portfolio {        
-        width: var(--contentContainerWidth);        
+    .header {
+        transform: translateX(1800px);
+    }
+    #hamburger {
+        left: 50px;
+    }
+    .content-container#content-container-portfolio {        
+        width: var(--contentContainerWidth);    
+        top: 40vh;    
     }
     #container-div {
        border: 2px solid rgb(61, 168, 34);
        left: calc((var(--contentContainerWidth) - var(--containerWidth)) / 2);
+      
     }
     section#controls-container {
         left: 20px;
@@ -426,16 +422,27 @@ button {
        min-width: 110vw;
    }
 }
-@media screen and (max-width: 810px) {
-    nav {
-        border-bottom: 4px solid black;     
-    }  
-    .header {
-        transform: translateX(1800px);
+@media screen and (max-height: 450px) {
+    footer {
+        position: fixed;  
+        bottom: 0;   
     }
-    #hamburger {
-        left: 50px;
+    * {
+        --imageTotalWidth: 400px;
+        --imageWidth: 360px;
+        --imageHeight: 240px;
+        --imageTotalHeight: 330px;
+        }
+    nav, .header {
+        height: ;
+        animation: drop-down 3s ease-out 100ms 1 forwards;;
     }
-}
-
+    @keyframes drop-down {
+        100% {
+            opacity: 1;
+            height: 18vh;
+        }
+    }
+}vh
+     
 
