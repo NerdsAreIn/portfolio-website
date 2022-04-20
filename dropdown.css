@@ -391,17 +391,18 @@ footer {
         min-width: 100vw;
     }    
 }
-@media screen and (max-width: 810px) and (min-height: 1000px) {
+@media screen and (max-width: 810px) {
     nav {
-        height: 14vh;     
+        height: 18vh;     
         opacity: 1;
+        overflow: hidden;
     }
     #curtain {
-        top: 14vh;       
-        height: 86vh;        
+        top: 18vh;       
+        height: 82vh;        
     }
     .curtainItem {
-        height: calc(86vh / 4);
+        height: 25%;
     }
     .curtainLink {
         padding-top: 20px;
@@ -414,10 +415,10 @@ footer {
     }
     #curtain {
         top: 21vh;       
-        height: max(77vh, calc(100% - 21vh));        
+        height: max(79vh, calc(100% - 21vh));        
     }
     .curtainItem {
-        height: 25%;
+        height: calc(79vh / 4);
         font-size: 1.3rem;
     }
     .curtainLink {
@@ -441,5 +442,30 @@ footer {
     }
     #signature {
         font-size: 0.7rem;
+    }
+}
+@media screen and (max-height: 450px) {
+    footer {
+        position: fixed;  
+        bottom: 0;   
+    }    
+    nav, .header {
+         animation: drop-down 3s ease-out 100ms 1 forwards;
+    }
+    .header {
+        padding: 23px 20px 20px;  
+    }
+    #work-button .link-container {
+        /*margin-bottom: 20px;*/
+        bottom: 12px;
+    }
+    .menuDiv {
+        top: 17vh;
+    }
+    @keyframes drop-down {
+        100% {
+            opacity: 1;
+            height: 18vh;
+        }
     }
 }
