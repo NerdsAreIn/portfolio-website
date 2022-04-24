@@ -415,9 +415,7 @@ footer {
         height: max(79vh, calc(100% - 21vh));        
     }
     .curtainItem {
-        height: calc(79vh / 4);
-        font-size: 1.3rem;
-        min-height: 90px;
+        font-size: 1.3rem;       
     }
     .curtainLink {
         padding-top: 17px;
