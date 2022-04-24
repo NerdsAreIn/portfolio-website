@@ -60,7 +60,7 @@ nav {
     left: calc((100vw - var(--containerWidth)) / 2 );
     width: var(--containerWidth);    
     height: var(--containerHeight);
-    z-index: 1;
+    z-index: 3;
     text-align: center;
     border: 2px solid transparent;
     box-sizing: content-box;    
@@ -74,7 +74,7 @@ nav {
     border-radius: 3px;
     height: var(--imageTotalHeight);
     width: var(--imageTotalWidth);
-    z-index: 2;    
+    z-index: 4;    
     position: relative;
     overflow: hidden;      
     top: 0px;
@@ -101,7 +101,7 @@ size is reduced: */
 #slides-reel {
     height: var(--imageTotalHeight);
     width: calc(var(--imageTotalWidth) * var(--images));
-    z-index: 3;
+    z-index: 5;
     position: absolute;
     left: -0px;   
     border: none;    
@@ -181,7 +181,7 @@ size is reduced: */
 img.screenshot {
     width: var(--imageWidth);
     height: var(--imageHeight);     
-    z-index: 5;
+    z-index: 7;
     object-fit: cover;
     object-position: 0 0;
     border: 2px solid black;
@@ -191,7 +191,7 @@ img.screenshot {
 }
 .segment {
     float: left;
-    z-index: 4;  
+    z-index: 6;  
     width: var(--imageTotalWidth);
     height: var(--imageTotalHeight); 
 }
@@ -384,9 +384,9 @@ button {
     --imageTotalHeight: 330px;    
     }
     nav {
-        width: var(--contentContainerWidth);
         width: 110%;
         opacity: 1;
+        height: 18vh;
     }
     .header {
         transform: translateX(1800px);
@@ -412,46 +412,31 @@ button {
         bottom: 0;        
     }
 }
-@media (max-width: 636px) {
-    .content-container#content-container-portfolio {       
-        left: 0;      
-    }
-}
-@media  screen and (max-width: 450px) and (max-height: 950px) {
+/*tablet dimensions: */
+@media (max-width: 810px) and (min-height: 1000px) {
     * {
-        --circlesContainerWidth: calc(32 * var(--circles) + 20px);
+    --imageTotalWidth: revert;
+    --imageWidth: revert;
+    --imageHeight: revert;
+    --imageTotalHeight: revert;  
     }
-   #content-container-portfolio {
-       top: 25vh;
-   }
-   .footer {
-       min-width: 110vw;
-   }
-   .circle {
-       width: 12px;
-       height: 12px;
-   }
-   nav {
-    height: 21vh;
-    opacity: 1;       
+    nav {
+        height: 14vh;
+        animation: none;
+    }    
+    #content-container-portfolio {
+        top: 20vh;
     }
     #curtain {
-        top: 21vh;       
-        height: max(79vh, calc(100% - 21vh));        
+        top: 14vh;       
+        height: 86vh;        
     }
     .curtainItem {
-        height: 
         font-size: 1.3rem;
-    }
-    .curtainLink {
-        padding-top: 17px;
+        /* links need vertically centring */        
     }
     .curtainMenu li {
         font-size: 1.1rem;
-    }
-    #hamburger {
-        top: 10vh;
-        width: 60px;
     }
     #closeBtn {
         top: 10px;
@@ -462,9 +447,35 @@ button {
     .btnStripe {
         width: 90%;
     }
-    #signature {
-        font-size: 0.7rem;
+}
+@media (max-width: 636px) {
+    .content-container#content-container-portfolio {       
+        left: 0;      
     }
+}
+@media  screen and (max-width: 450px) and (max-height: 950px) {
+    * {
+        --circlesContainerWidth: calc(32 * var(--circles) + 20px);
+    }
+    nav {
+        height: 21vh;
+        min-height: 95px;
+        opacity: 1;       
+    }
+    #curtain {
+        top: 21vh;       
+        height: max(79vh, calc(100% - 21vh));                    
+    }
+   #content-container-portfolio {
+       top: 25vh;
+   } 
+   .circle {
+    width: 12px;
+    height: 12px;
+    } 
+   .footer {
+       min-width: 110vw;
+   }     
 }
 @media screen and (max-height: 450px) {
     * {
@@ -472,6 +483,20 @@ button {
         --imageWidth: 360px;
         --imageHeight: 240px;
         --imageTotalHeight: 330px;
+    }
+    nav, .header, nav > a {
+        animation: drop-down2 1s ease-out 100ms 1 forwards;    
+        opacity: 1;
+        height: max(18vh, 70px)     
+    }
+    #curtain {
+        top: max(18vh, 70px);  
+        height: max(82vh, calc(100% - 70px));      
+    }
+    @keyframes drop-down2 {
+        100% {
+            opacity: 1;
+            height: max(18vh, 70px);
         }
+    }   
 }  
-
