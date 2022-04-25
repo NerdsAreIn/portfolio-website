@@ -470,8 +470,8 @@ button {
        top: 25vh;
    } 
    .circle {
-    width: 12px;
-    height: 12px;
+    width: 5px;
+    height: 5px;
     } 
    .footer {
        min-width: 110vw;
@@ -487,16 +487,20 @@ button {
     nav, .header, nav > a {
         animation: drop-down2 1s ease-out 100ms 1 forwards;    
         opacity: 1;
-        height: max(18vh, 70px)     
+        height: max(18vh, 70px);
+        height: 18vh;   
     }
     #curtain {
         top: max(18vh, 70px);  
-        height: max(82vh, calc(100% - 70px));      
+        height: max(82vh, calc(100% - 70px));   
+        top: 18vh;
+        height: 82vh;   
     }
     @keyframes drop-down2 {
         100% {
             opacity: 1;
             height: max(18vh, 70px);
+            height: 18vh;
         }
     }   
 }  
