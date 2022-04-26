@@ -394,10 +394,7 @@ footer {
     #curtain {
         top: 18vh;       
         height: 82vh;        
-    }
-    .curtainItem {
-        /*height: 25%;*/       
-    }
+    }    
     .curtainLink {
         padding-top: 20px;
     }   
@@ -428,6 +425,7 @@ footer {
     /* hamburger icon and curtain close button bigger on mobile: */
     #hamburger {        
         width: 60px;
+        top: 40%;
     }
      #closeBtn {
         top: 10px;
@@ -443,7 +441,7 @@ footer {
     }
 }
 /* curtain viz-viz nav bar sizing works with following code, but curtain links
-need to stay vertically centred and headers need to go off-screen in mobile width */
+need to stay vertically centred */
 @media screen and (max-height: 450px) {
     footer {
         position: fixed;  
@@ -464,17 +462,10 @@ need to stay vertically centred and headers need to go off-screen in mobile widt
         bottom: 12px;
     }
     .menuDiv {
-        top: max(18vh, 67px);
+        top: max(17vh, 67px);
     }
     #curtain {
         top: max(18vh, 70px);  
         height: max(82vh, calc(100% - 70px));            
     }
-    /* @keyframes drop-down2 { 
-        100% {
-            opacity: 1;
-            height: max(18vh, 70px);
-            height: 18vh;
-        }
-    }     */
 }
