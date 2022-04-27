@@ -433,8 +433,7 @@ button {
         height: 86vh;        
     }
     .curtainItem {
-        font-size: 1.3rem;
-        /* links need vertically centring */        
+        font-size: 1.3rem;         
     }
     .curtainMenu li {
         font-size: 1.1rem;
