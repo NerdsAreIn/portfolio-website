@@ -399,7 +399,7 @@ button {
         left: calc((100vw - var(--contentContainerWidth)) / 2);      
     }
     #container-div {
-       border: 2px solid rgb(61, 168, 34);
+       /* border: 2px solid rgb(61, 168, 34); */
        left: calc((var(--contentContainerWidth) - var(--containerWidth)) / 2);      
     }
     section#controls-container {
