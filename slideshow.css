@@ -62,7 +62,7 @@ nav {
     height: var(--containerHeight);
     z-index: 3;
     text-align: center;
-    border: 2px solid transparent;
+    border: 2px solid red;
     box-sizing: content-box;    
     margin-bottom: 24vh;    
 }
@@ -284,7 +284,7 @@ section#controls-container {
     bottom: 75vh;     
     background-color: transparent;       
     perspective: 500px;    
-    animation: bloom 1s linear 2.8s 1 forwards;
+    animation: bloom 0.6s linear 2.8s 1 forwards;
     opacity: 0;
     width: clamp(80px, 8vw, 9vw);
     height: 70px;
@@ -466,8 +466,31 @@ button {
         height: max(79vh, calc(100% - 21vh));                    
     }
    #content-container-portfolio {
-       top: 25vh;
+       top: 38vh;
+       border: 2px solid green;
    } 
+   #container-div {
+       left: 0;
+   }
+   #slides-container {
+       left: 0;
+   }
+   button.arrow {
+       top: -22%;
+   }
+   #back-arrow {
+       left: 5%;
+   }
+   #forward-arrow {
+    right: 30%;
+   }
+   section#controls-container {
+       top: -27%;
+       left: 25%;
+   }
+   #circles-container {
+       left: 13%;
+   }
    .circle {
     width: 10px;
     height: 10px;
@@ -475,6 +498,17 @@ button {
    .footer {
        min-width: 110vw;
    }       
+}
+@media (max-width: 450px) and (max-height: 790px) {
+    #content-container-portfolio {
+        top: 34vh;
+    }  
+    footer {
+        height: 14vh;
+    }
+    .footer {
+        height: 11vh;
+    }
 }
 @media screen and (max-height: 450px) {
     * {
