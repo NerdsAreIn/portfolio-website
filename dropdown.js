@@ -7,14 +7,11 @@ const underlines = document.querySelectorAll(".underline");
 // mouseover also applies to child elements
 
 function respondToEvent(e) {
-    //if (e.type === "click" && e.target.closest(".header")) {
-    //    e.preventDefault();
-   //}
     let selectedLink;    
     let selectedLinkParent;
     if (e.target.matches(".header a")) {
         selectedLink = e.target;        
-        selectedLink.className = "hovered"; 
+        selectedLink.classList.add("hovered"); 
         selectedLinkParent = selectedLink.closest(".header");
         selectedLinkParent.classList.add("active");        
         const selectedUnderline = selectedLink.nextElementSibling;

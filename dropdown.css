@@ -68,6 +68,10 @@ nav {
         height: 90px;
     }
 }
+nav.visible, header.visible {
+    opacity: 1;
+    height: 90px;
+}
 .header {
     width: 25vw;    
     overflow: visible;
@@ -82,10 +86,6 @@ nav {
     transition: transform 1.5s ease-out;
     position: relative;
 }
-/*.header.visible {
-    opacity: 1;
-    height: 90px;
-}*/
 .header.off-screen {
     transform: translateX(1800px);
 }
@@ -106,18 +106,30 @@ nav {
     font-weight: bold;
     color: black;
     position: relative;    
-    transition: color ease 100ms;
+    transition: color ease 100ms, opacity 1500ms linear 1000ms;
     opacity: 0;      
     z-index: 10;
     width: fit-content;    
     padding: 5px; 
-    animation: text-appear 1.5s linear 1s 1 forwards;
+    /* animation: text-appear 1.5s linear 1s 1 forwards; */
 }
-@keyframes text-appear {
+/* @keyframes text-appear {
     100% {
         opacity: 1;
     }
-}
+} */
+/* header text still fading in every time screen size is maximised, despite attempt 
+to disable animation. Also, "visible" class disappearing when nav/headers are hovered over. 
+Make it a transition instead?*/
+/* .header.visible a.visible, .header.visible.active a.visible, 
+.header.visible a.visible.hovered, .header.visible.active a.visible.hovered,
+.header.visible a.visible:hover, .header.visible.active a.visible:hover {
+    opacity: 1;
+    animation: none;
+} */
+ a.visible {
+    opacity: 1;   
+ }
 span.arrow {
     font-size: 1.5rem;
     margin-left: 3px;   
@@ -238,25 +250,21 @@ ul.menuDiv > li > a {
     width: fit-content;
     margin: auto;
     text-align: center;
-    z-index: 8;    
-    /* padding-top: 3px; */    
+    z-index: 8;        
 }
 .curtainLink#curtain-filmsLink {
     padding-top: 6px;
 }
 #curtain a {
     color: black;
-    text-decoration: none;    
-    /* height: 100%; */
+    text-decoration: none;      
     display: inline-block;   
 }
 #curtain .curtainLink > a {
     z-index: 9;    
-    /* vertical-align: middle;    */
     line-height: 25px;
     position: relative;
-    top: calc((100% - 25px) / 2);
-     /* padding-bottom: calc((100% - 25px) / 2);  */
+    top: calc((100% - 25px) / 2);     
 }
 #closeBtn {
     position: absolute;
@@ -369,7 +377,6 @@ footer {
     height: 0;
     opacity: 0;
     width: 100%;    
-    /*border-top: 10px solid rebeccapurple;*/
     border-bottom: 20px solid rgb(211, 255, 251);
     animation: footer-content-rise 2s ease-out 0.5s 1 forwards;;
 }
@@ -388,7 +395,7 @@ footer {
     }
 }
 @media screen and (max-width: 810px) {
-    nav {
+    nav.visible {
         height: 18vh;     
         opacity: 1;
         overflow: hidden;
@@ -397,17 +404,14 @@ footer {
     #curtain {
         top: 18vh;       
         height: 82vh;        
-    }    
-    /* .curtainLink {
-        padding-top: 20px;
-    }    */
+    }  
     .footer {
         min-width: 100vw;
     }
 }
 /* mobile dimensions: */
 @media (max-width: 450px) and (max-height: 950px) {
-    nav {
+    nav.visible {
         height: 21vh;             
         min-height: 95px;  
     }
@@ -418,10 +422,7 @@ footer {
     /* larger menu font-size for small screen: */
     .curtainItem {
         font-size: 1.3rem;       
-    }
-    /* .curtainLink {
-        padding-top: 17px;
-    }     */
+    }    
     .curtainMenu li {
         font-size: 1.1rem;
     }
@@ -443,25 +444,28 @@ footer {
         font-size: 0.7rem;
     }
 }
-/* curtain viz-viz nav bar sizing works with following code, but curtain links
-need to stay vertically centred */
 @media screen and (max-height: 450px) {
     footer {
         position: fixed;  
         bottom: 0;   
     }    
-    nav, .header {
-         /* animation: drop-down2 1s ease-out 100ms 1 forwards;   */
+    nav.visible, .header.visible {        
          opacity: 1;
          height: 18vh;
          min-height: 70px;
          animation: none;       
     }    
+    /* .header.visible a {
+        opacity: 1;
+        animation: none;
+    } */
+    a.visible {
+        /* animation: none; */
+    }
     .header {
         padding: 23px 20px 20px;  
     }
-    #work-button .link-container {
-        /*margin-bottom: 20px;*/
+    #work-button .link-container {      
         bottom: 12px;
     }
     .menuDiv {

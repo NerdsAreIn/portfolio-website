@@ -16,7 +16,7 @@
 nav {
     opacity: 1;
     height: 90px;
-    transition: none;
+    animation: none;
 }
 .header {
     opacity: 1;
@@ -25,7 +25,7 @@ nav {
 }
 .header a {
     opacity: 1;   
-    transition: none;
+    animation: none;
 }
 #footer-content {
     opacity: 1;
@@ -96,8 +96,6 @@ double border: */
     top: 6px;
     left: 6px;   
 }
-/* to prevent overlapping of button and container when screen
-size is reduced: */
 #slides-reel {
     height: var(--imageTotalHeight);
     width: calc(var(--imageTotalWidth) * var(--images));
@@ -413,8 +411,7 @@ button {
     }
 }
 /*tablet dimensions: */
-@media (max-width: 810px) and (min-height: 1000px) {
-    /* original size: */
+@media (max-width: 810px) and (min-height: 1000px) {   
     * {
     --imageTotalWidth: revert;
     --imageWidth: revert;
