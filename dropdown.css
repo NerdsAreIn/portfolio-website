@@ -59,7 +59,9 @@ nav {
         animation: drop-down 2s ease-out 100ms 1 forwards;        
     }
     .header {
-        animation: drop-down 3s ease-out 100ms 1 forwards;
+        opacity: 0;
+        height: 0;
+        animation: drop-down 2s ease-out 1s 1 forwards;
     }
 }
 @keyframes drop-down {
@@ -68,7 +70,7 @@ nav {
         height: 90px;
     }
 }
-nav.visible, header.visible {
+nav.visible, .header.visible {
     opacity: 1;
     height: 90px;
 }
@@ -77,8 +79,6 @@ nav.visible, header.visible {
     overflow: visible;
     display: inline-block;    
     z-index: 8; 
-    opacity: 0;  
-    height: 0;
     text-align: center;  
     background-color: inherit;             
     z-index: 2;          
@@ -106,30 +106,21 @@ nav.visible, header.visible {
     font-weight: bold;
     color: black;
     position: relative;    
-    transition: color ease 100ms, opacity 1500ms linear 1000ms;
+    transition: color ease 100ms;
     opacity: 0;      
     z-index: 10;
     width: fit-content;    
     padding: 5px; 
-    /* animation: text-appear 1.5s linear 1s 1 forwards; */
+    animation: text-appear 1.5s linear 1s 1 forwards; 
 }
-/* @keyframes text-appear {
+ @keyframes text-appear {
     100% {
         opacity: 1;
     }
-} */
-/* header text still fading in every time screen size is maximised, despite attempt 
-to disable animation. Also, "visible" class disappearing when nav/headers are hovered over. 
-Make it a transition instead?*/
-/* .header.visible a.visible, .header.visible.active a.visible, 
-.header.visible a.visible.hovered, .header.visible.active a.visible.hovered,
-.header.visible a.visible:hover, .header.visible.active a.visible:hover {
+} 
+#nav1.visible .header.visible a {
     opacity: 1;
-    animation: none;
-} */
- a.visible {
-    opacity: 1;   
- }
+}
 span.arrow {
     font-size: 1.5rem;
     margin-left: 3px;   
@@ -395,12 +386,24 @@ footer {
     }
 }
 @media screen and (max-width: 810px) {
-    nav.visible {
-        height: 18vh;     
-        opacity: 1;
-        overflow: hidden;
+    nav {
         border-bottom: 4px solid black;
+        height: 0;
+        opacity: 0;        
+        animation: drop-down 3s ease-out 100ms 1 forwards;
     }
+    nav.visible {
+        height: 18vh;       
+        opacity: 1;
+        overflow: hidden;        
+        animation: none;
+    }    
+    @keyframes drop-down {
+        100% {
+            height: 18vh;
+            opacity: 1;
+        }
+    }  
     #curtain {
         top: 18vh;       
         height: 82vh;        
@@ -411,9 +414,22 @@ footer {
 }
 /* mobile dimensions: */
 @media (max-width: 450px) and (max-height: 950px) {
+    nav {
+        height: 0;
+        opacity: 0;        
+        animation: drop-down 2s ease-out 100ms 1 forwards;
+    }
+    @keyframes drop-down {
+        100% {
+            min-height: 95px;
+            height: 21vh;
+            opacity: 1;
+        }
+    }
     nav.visible {
-        height: 21vh;             
-        min-height: 95px;  
+        min-height: 95px; 
+        height: 21vh;       
+        opacity: 1;
     }
     #curtain {
         top: max(21vh, 95px);       
@@ -445,23 +461,29 @@ footer {
     }
 }
 @media screen and (max-height: 450px) {
-    footer {
-        position: fixed;  
-        bottom: 0;   
-    }    
-    nav.visible, .header.visible {        
-         opacity: 1;
-         height: 18vh;
-         min-height: 70px;
-         animation: none;       
-    }    
-    /* .header.visible a {
-        opacity: 1;
-        animation: none;
-    } */
-    a.visible {
-        /* animation: none; */
+    nav {
+        height: 0;
+        opacity: 0;        
+        animation: drop-down 2s ease-out 100ms 1 forwards;
     }
+    .header {
+        height: 0;
+        opacity: 0;        
+        animation: drop-down 1s ease-out 1s 1 forwards;
+    }
+    @keyframes drop-down {
+        100% {      
+            min-height: 70px;   
+            height: 18vh;            
+            opacity: 1;
+         }
+     } 
+    nav.visible, .header.visible {        
+        opacity: 1;
+        min-height: 70px;
+        height: 18vh;        
+        animation: none;       
+   }     
     .header {
         padding: 23px 20px 20px;  
     }
@@ -475,4 +497,8 @@ footer {
         top: max(18vh, 70px);  
         height: max(82vh, calc(100% - 70px));            
     }
+    footer {
+        position: fixed;  
+        bottom: 0;   
+    }  
 }

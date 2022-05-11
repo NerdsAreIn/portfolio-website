@@ -2,7 +2,6 @@ import headersImport from "./dropdown.js";
 
 const arrows = document.querySelectorAll(".arrow");
 const nav = document.querySelector("nav");
-const links = document.querySelectorAll(".header a");
 
 arrows.forEach(arrow => {
     arrow.addEventListener("animationend", () => {
@@ -11,12 +10,6 @@ arrows.forEach(arrow => {
             arrow.style.animation = "none";
         }, 100);    
     });
-});
-
-links.forEach(link => {
-    setTimeout(() => {
-        link.classList.add("visible");        
-    }, 100);    
 });
 
 arrows.forEach(arrow => {
@@ -28,9 +21,6 @@ arrows.forEach(arrow => {
 setTimeout(() => {
     nav.classList.add("visible");
     headersImport.forEach(header => {
-        header.classList.add("visible");
-        //header.children[0].children[0].classList.add("visible");
-        header.children[0].children[0].style.opacity = "1";
-        // header.children[0].children[0].style.animation = "none";
-    });
+        header.classList.add("visible");       
+    });    
 }, 3000);
