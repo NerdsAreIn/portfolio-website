@@ -19,7 +19,15 @@ nav {
 }
 @media screen and (max-width: 810px) {
     nav {
-        border-bottom: 4px solid black;     
+        /* border-bottom: 4px solid black;      */
+    }
+    #bottom-border, #bottom-border.visible {
+        height: 4px;
+        width: 100%;
+        background-color: black;
+        position: absolute;
+        bottom: 0;
+        animation: none;        
     }
     .header {
         transform: translateX(1800px);

@@ -22,7 +22,7 @@ nav {
 }
 @media screen and (max-width: 810px) {
     nav {
-        border-bottom: 4px solid black;     
+        /* border-bottom: 4px solid black;      */
     }  
     .header {
         transform: translateX(1800px);

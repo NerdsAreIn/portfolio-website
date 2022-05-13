@@ -387,23 +387,38 @@ footer {
 }
 @media screen and (max-width: 810px) {
     nav {
-        border-bottom: 4px solid black;
         height: 0;
         opacity: 0;        
-        animation: drop-down 3s ease-out 100ms 1 forwards;
+        animation: drop-down 2.7s ease-out 0.1s 1 forwards; 
     }
     nav.visible {
         height: 18vh;       
         opacity: 1;
         overflow: hidden;        
+    } 
+    #bottom-border {
+        height: 4px;
+        width: 0;
+        background-color: black;
+        position: absolute;
+        bottom: 0;
+        animation: border-grow 0.5s linear 2.7s 1 forwards;
+    }
+    #bottom-border.visible {
+        width: 100%;
         animation: none;
-    }    
+    }
+    @keyframes border-grow {
+        to {
+            width: 100%;
+        }
+    }
     @keyframes drop-down {
         100% {
             height: 18vh;
             opacity: 1;
         }
-    }  
+    }    
     #curtain {
         top: 18vh;       
         height: 82vh;        

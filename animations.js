@@ -20,7 +20,8 @@ arrows.forEach(arrow => {
 
 setTimeout(() => {
     nav.classList.add("visible");
+    nav.lastElementChild.classList.add("visible");
     headersImport.forEach(header => {
         header.classList.add("visible");       
     });    
-}, 3000);
+}, 3200);
