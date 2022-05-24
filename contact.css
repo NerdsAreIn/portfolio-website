@@ -19,20 +19,23 @@ nav {
 }
 @media screen and (max-width: 810px) {
     nav {
-        /* border-bottom: 4px solid black;      */
-    }
-    #bottom-border, #bottom-border.visible {
-        height: 4px;
-        width: 100%;
-        background-color: black;
-        position: absolute;
-        bottom: 0;
-        animation: none;        
+        width: 110%;
+        opacity: 1;
+        height: 18vh;
     }
     .header {
         transform: translateX(1800px);
     }
+    #bottom-border {
+        width: 100%;
+        animation: none;        
+    }   
     #hamburger {
         left: 50px;
+    }
+    footer {
+        width: 110%;
+        position: fixed;
+        bottom: 0;        
     }
 }

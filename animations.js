@@ -20,6 +20,7 @@ arrows.forEach(arrow => {
 
 setTimeout(() => {
     nav.classList.add("visible");
+    // bottom border:
     nav.lastElementChild.classList.add("visible");
     headersImport.forEach(header => {
         header.classList.add("visible");       

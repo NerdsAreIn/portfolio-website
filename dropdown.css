@@ -488,15 +488,13 @@ footer {
     }
     @keyframes drop-down {
         100% {      
-            min-height: 70px;   
-            height: 18vh;            
+            height: 70px;   
             opacity: 1;
          }
      } 
     nav.visible, .header.visible {        
         opacity: 1;
-        min-height: 70px;
-        height: 18vh;        
+        height: 70px;
         animation: none;       
    }     
     .header {

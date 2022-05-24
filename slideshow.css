@@ -275,7 +275,7 @@ button.arrow:active, button.arrow:focus {
     border: 1px solid black;
 }
 section#controls-container {
-    z-index: 1;
+    z-index: 10;
     position: absolute; 
     top: 25%; 
     left: calc((100vw - var(--containerWidth)) / 3.1 );
@@ -385,6 +385,10 @@ button {
         width: 110%;
         opacity: 1;
         height: 18vh;
+    }
+    #bottom-border {
+        width: 100%;
+        animation: none;
     }
     .header {
         transform: translateX(1800px);
