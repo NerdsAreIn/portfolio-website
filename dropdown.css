@@ -201,7 +201,7 @@ ul.menuDiv > li > a {
     position: relative;
     height: 25px;
     width: 0;    
-    transition: width 1.5s linear 0s;
+    transition: width 1.2s linear 0s;
 }
 .intro-text.visible {  
     width: 250px;
@@ -211,7 +211,7 @@ ul.menuDiv > li > a {
    width: 0;
    text-align: left;
    opacity: 0;
-   transition: opacity 1.5s linear 1s, width 0.8s linear 0s;
+   transition: opacity 1.5s linear 0.7s, width 0.8s linear 0s;
 }
 .intro-text.visible p {
   opacity: 1;

@@ -6,12 +6,13 @@ const introBars = Array.from(document.getElementsByClassName("intro-text"));
 console.log({introBars});
 
 
-let time = 4000;
+let time = 1800;
+// --TODO: make time shorter for full page intro
 for (let i = 0; i < introBars.length; i++) {
     setTimeout(() => {
         introBars[i].classList.add("visible");
     }, time);
-    time += 1500;
+    time += 1100;
 }
 
 arrows.forEach(arrow => {
