@@ -429,7 +429,7 @@ button {
     #content-container-portfolio {
         top: 20vh;
     }
-    #curtain {
+    /* #curtain {
         top: 14vh;       
         height: 86vh;        
     }
@@ -447,7 +447,7 @@ button {
     }
     .btnStripe {
         width: 90%;
-    }
+    } */
 }
 @media (max-width: 636px) {
     .content-container#content-container-portfolio {       
