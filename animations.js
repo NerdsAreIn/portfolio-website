@@ -2,6 +2,17 @@ import headersImport from "./dropdown.js";
 
 const arrows = document.querySelectorAll(".arrow");
 const nav = document.querySelector("nav");
+const introBars = Array.from(document.getElementsByClassName("intro-text"));
+console.log({introBars});
+
+
+let time = 4000;
+for (let i = 0; i < introBars.length; i++) {
+    setTimeout(() => {
+        introBars[i].classList.add("visible");
+    }, time);
+    time += 1500;
+}
 
 arrows.forEach(arrow => {
     arrow.addEventListener("animationend", () => {
