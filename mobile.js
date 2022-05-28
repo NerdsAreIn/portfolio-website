@@ -95,19 +95,19 @@ function collapseNav(e) {
         headersImport.forEach(header => {           
             header.classList.add("off-screen");            
         });
-        // if (e.type === "change" && hamburger.style.left !== "50px") {      
-        // setTimeout(() => hamburger.style.left = "50px", 300);     
-        // } 
-        if (e.type === "load") {     
-            hamburger.style.left = "-150px"; 
-            setTimeout(() => hamburger.style.left = "50px", 2000);     
+        if (e.type === "change" && hamburger.style.left !== "50px") {      
+            setTimeout(() => hamburger.style.left = "50px", 300);     
         } 
+        // if (e.type === "load") {     
+        //     hamburger.style.left = "-150px"; 
+        //     setTimeout(() => hamburger.style.left = "50px", 2000);     
+        // } 
     }
     else {
         headersImport.forEach(header => {           
             header.classList.remove("off-screen");
         });
-        // hamburger.style.left = "-150px";     
+        hamburger.style.left = "-150px";     
         curtain.className = "";   
     }
 }

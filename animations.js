@@ -1,18 +1,35 @@
 import headersImport from "./dropdown.js";
+import {mobileWidth} from "./mobile.js";
 
+const smallerWidth = window.matchMedia("(max-width: 1000px)");
+const smallerHeight = window.matchMedia("(max-height: 450px)");
 const arrows = document.querySelectorAll(".arrow");
 const nav = document.querySelector("nav");
 const introBars = Array.from(document.getElementsByClassName("intro-text"));
 console.log({introBars});
 
 
-let time = 1800;
+let time;
+
+if (mobileWidth.matches) {
+    time = 300;
+    console.log("mobile");
+}
+else if (smallerWidth.matches) {
+    time = 1000;
+    console.log("smaller width");
+}
+else {
+    console.log("regular");
+    time = 1800;
+}
+
 // --TODO: make time shorter for full page intro
 for (let i = 0; i < introBars.length; i++) {
     setTimeout(() => {
         introBars[i].classList.add("visible");
     }, time);
-    time += 1100;
+    time += 800;
 }
 
 arrows.forEach(arrow => {

@@ -39,8 +39,9 @@ body {
 .content-container {
     z-index: 2;
     position: relative;
-    top: 100px;
-    top: calc(var(--nav-height) + 10px);
+    /* top: 100px; */
+    /* top: calc(var(--nav-height) + 0.5vh); */
+    top: var(--nav-height);
     border: 3px solid indianred; 
 }
 nav {
@@ -95,9 +96,9 @@ nav.visible, .header.visible {
 .header.off-screen {
     transform: translateX(1800px);
 }
-#work-button {
+/* #work-button {
     padding-top: 23px;
-}
+} */
 .link-container {
     width: max-content;
     margin: auto;
@@ -134,6 +135,9 @@ span.arrow {
     top: -4px;
     z-index: 10;
 }
+span.arrow:not(#work-button span.arrow) {
+    opacity: 0;
+}
 span.arrow.up {
     top: 7px;
 }
@@ -156,6 +160,9 @@ a:hover, a.hovered {
 }
  a:hover + .underline, .underline.hovered {
     width: 100%;
+}
+#bottom-border {
+    display: none;
 }
 .menuDiv {
     height: 0;
@@ -196,10 +203,10 @@ ul.menuDiv > li > a {
 .intro-text {
     box-sizing: content-box;
     font-family: "banger";
-    margin: 40px 0;
-    /* border: 2px solid green; */       
+    margin: 6vh 0;     
     position: relative;
-    height: 25px;
+    height: 6vh;
+    max-height: 30px;
     width: 0;    
     transition: width 1.2s linear 0s;
 }
@@ -212,6 +219,7 @@ ul.menuDiv > li > a {
    text-align: left;
    opacity: 0;
    transition: opacity 1.5s linear 0.7s, width 0.8s linear 0s;
+   text-shadow: 1px 1px white;
 }
 .intro-text.visible p {
   opacity: 1;
@@ -220,19 +228,20 @@ ul.menuDiv > li > a {
 #intro-text-1 {
     margin-top: 1px;   
     left: 10%;
-    background-color: fuchsia;
+    background-color: fuchsia;   
 }
 #intro-text-2 {        
     left: 20%;
-    background-color: rgb(236, 172, 236);  ;
+    background-color: rgb(236, 172, 236);
 }
 #intro-text-3 {   
     left: 30%;
     background-color: rgb(252, 177, 188);
 }
 #intro-text-4 {   
-   background-color: rgb(211, 255, 251);;
+   background-color: rgb(211, 255, 251);
     left: 40%;
+    margin-bottom: 0;
 }
 #hamburger {
     height: auto;
@@ -436,32 +445,34 @@ footer {
     * {
         --nav-height: 18vh;
     }
-    nav {
+    /* nav {
         height: 0;
         opacity: 0;        
         animation: drop-down 2.7s ease-out 0.1s 1 forwards; 
-    }
-    nav.visible {
+    } */
+    nav, nav.visible {
         height: 18vh;       
         opacity: 1;
-        overflow: hidden;        
+        overflow: hidden;    
+        animation: none;    
     } 
     #hamburger {
         left: 50px;        
     }
     #bottom-border {
+        display: block;
         height: 4px;
-        width: 0;
+        width: 100%;
         background-color: black;
         position: absolute;
         bottom: 0;
-        animation: border-grow 0.5s linear 2.7s 1 forwards;
+        /* animation: border-grow 0.5s linear 2.7s 1 forwards; */
     }
-    #bottom-border.visible {
+    /* #bottom-border.visible {
         width: 100%;
         animation: none;
-    }
-    @keyframes border-grow {
+    } */
+    /* @keyframes border-grow {
         to {
             width: 100%;
         }
@@ -471,7 +482,7 @@ footer {
             height: 18vh;
             opacity: 1;
         }
-    }    
+    }     */
     #curtain {
         top: 18vh;       
         height: 82vh;        
@@ -525,26 +536,29 @@ footer {
     * {
         --nav-height: 21vh;
     }
-    nav {
+    /* nav {
         height: 0;
         opacity: 0;        
         animation: drop-down 2s ease-out 100ms 1 forwards;
-    }
-    @keyframes drop-down {
+    } */
+    /* @keyframes drop-down {
         100% {
-            /* min-height: 95px; */
+          
             height: 21vh;
             opacity: 1;
         }
-    }
-    nav.visible {
-        /* min-height: 95px;  */
+    } */
+    nav, nav.visible {
+        animation: none;
         height: 21vh;       
         opacity: 1;
     }
-    /* .content-container {
-        top: 200px;
-    } */
+    .header {
+        transform: translateX(1800px);
+    }
+    .content-container {
+        top: var(--nav-height);
+    } 
     #intro-text-1 {
         left: 5vw;
     }
@@ -616,9 +630,12 @@ footer {
     .header {
         padding: 23px 20px 20px;  
     }
-    #work-button .link-container {      
+    /* #work-button .link-container {      
         bottom: 12px;
-    }
+        -webkit-bottom: 0px;
+        padding: 0;
+        bottom: 7px;
+    } */
     .menuDiv {
         top: max(17vh, 67px);
     }
