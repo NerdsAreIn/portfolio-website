@@ -96,9 +96,6 @@ nav.visible, .header.visible {
 .header.off-screen {
     transform: translateX(1800px);
 }
-/* #work-button {
-    padding-top: 23px;
-} */
 .link-container {
     width: max-content;
     margin: auto;
@@ -106,6 +103,12 @@ nav.visible, .header.visible {
     z-index: 9;
     overflow: visible;
     position: relative;
+}
+#work-button .link-container {
+    line-height: 18px; 
+}
+#work-button .link-container a {
+    margin-top: 2px;    
 }
 .header a {
     margin: auto;    
@@ -131,9 +134,10 @@ nav.visible, .header.visible {
 span.arrow {
     font-size: 1.5rem;
     margin-left: 3px;   
-    position: relative;
-    top: -4px;
+    position: absolute;
+    top: -2px;
     z-index: 10;
+    margin-left: 0.7vw;
 }
 span.arrow:not(#work-button span.arrow) {
     opacity: 0;
