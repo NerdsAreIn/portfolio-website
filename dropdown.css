@@ -38,9 +38,7 @@ body {
 }
 .content-container {
     z-index: 2;
-    position: relative;
-    /* top: 100px; */
-    /* top: calc(var(--nav-height) + 0.5vh); */
+    position: relative;    
     top: var(--nav-height);
     border: 3px solid indianred; 
 }
@@ -132,15 +130,11 @@ nav.visible, .header.visible {
     opacity: 1;
 }
 span.arrow {
-    font-size: 1.5rem;
-    margin-left: 3px;   
+    font-size: 1.5rem;   
     position: absolute;
     top: -2px;
     z-index: 10;
     margin-left: 0.7vw;
-}
-span.arrow:not(#work-button span.arrow) {
-    opacity: 0;
 }
 span.arrow.up {
     top: 7px;
@@ -308,9 +302,6 @@ ul.menuDiv > li > a {
     text-align: center;
     z-index: 8;        
 }
-.curtainLink#curtain-filmsLink {
-    padding-top: 6px;
-}
 #curtain a {
     color: black;
     text-decoration: none;      
@@ -321,6 +312,10 @@ ul.menuDiv > li > a {
     line-height: 25px;
     position: relative;
     top: calc((100% - 25px) / 2);     
+}
+.curtainLink span.arrow {
+    top: -7px;
+    margin-left: 1.6vw;   
 }
 #closeBtn {
     position: absolute;
@@ -503,24 +498,25 @@ footer {
     * {
         --nav-height: 18vh;
     }
-    nav {
+     /* nav {
         height: 0;
-        opacity: 0;        
-        animation: drop-down 2.7s ease-out 0.1s 1 forwards;
-    }    
-    nav.visible {
+        opacity: 0;         
+        animation: drop-down 2.7s ease-out 0.1s 1 forwards; 
+    } */    
+    nav, nav.visible {
         height: 18vh;       
-        opacity: 1;                
+        opacity: 1;     
+        animation: none;           
     } 
-    @keyframes drop-down {
+    /* @keyframes drop-down {
         100% {
             height: 18vh;
             opacity: 1;
         }
-    }  
+    }   */
     #curtain {
-        top: 14vh;       
-        height: 86vh;        
+        top: 18vh;       
+        height: 82vh;        
     }
     .curtainItem {
         font-size: 1.3rem;         
@@ -547,8 +543,8 @@ footer {
         height: 0;
         opacity: 0;        
         animation: drop-down 2s ease-out 100ms 1 forwards;
-    } */
-    /* @keyframes drop-down {
+    } 
+    @keyframes drop-down {
         100% {
           
             height: 21vh;
@@ -575,10 +571,8 @@ footer {
     #intro-text-4 {
         left: 35vw;
     }
-    #curtain {
-        /* top: max(21vh, 95px);    */
-        top: 21vh;    
-        /* height: max(79vh, calc(100% - 21vh));         */
+    #curtain {       
+        top: 21vh;  
         height: 79vh;
     }
     /* larger menu font-size for small screen: */
@@ -643,13 +637,7 @@ footer {
    }     
     .header {
         padding: 23px 20px 20px;  
-    }
-    /* #work-button .link-container {      
-        bottom: 12px;
-        -webkit-bottom: 0px;
-        padding: 0;
-        bottom: 7px;
-    } */
+    } 
     .menuDiv {
         top: 67px;
     } 
