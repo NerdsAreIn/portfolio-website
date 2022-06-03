@@ -16,12 +16,12 @@ if (mobileWidth.matches) {
     console.log("mobile");
 }
 else if (smallerWidth.matches) {
-    time = 1000;
+    time = 1200;
     console.log("smaller width");
 }
 else {
     console.log("regular");
-    time = 1800;
+    time = 1700;
 }
 
 // --TODO: make time shorter for full page intro
