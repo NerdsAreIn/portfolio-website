@@ -35,9 +35,11 @@ nav {
 #page-container-portfolio {  
     padding-bottom: 46vh;
     min-width: var(--containerWidth);
+    min-width: var(--contentContainerWidth);
 }
 .content-container#content-container-portfolio {
-    height: var(--containerHeight);          
+    height: calc(var(--containerHeight) + 20px);          
+    border: 3px solid green;
 }
 #slides-container, #slides-container::after, #slides-reel,
 #circles-container {

@@ -9,6 +9,7 @@ const playButton = document.getElementById("start");
 const slides = [...document.getElementsByClassName("segment")];
 const image1 = slides[0];
 const controlButtons = document.querySelectorAll("#controls-inner button");
+const reducedHeight = window.matchMedia("(max-height: 450px)");
 let reelDeclarationBlock = window.getComputedStyle(slidesReel);;
 let leftValue;
 let leftNumber; 
@@ -17,6 +18,7 @@ let imageWidth;
 let slideshowAnimation;
 
 mobileWidth.addEventListener("change", setSlidePositions);
+reducedHeight.addEventListener("change", setSlidePositions);
 window.addEventListener("load", setSlidePositions);
 
 function setSlidePositions() {
